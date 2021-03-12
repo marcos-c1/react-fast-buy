@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-position-x: right;
+  background-image: url("../imgs/back-img.jpeg");
+  background-position: center;
+}
+
+.container {
+  max-width: 500px;
+  margin: 85px auto;
+  overflow: auto;
+  background-color:whitesmoke;
+  min-height: 300px;
+  border: 1px solid RGB(0,0,0, 0.2);
+  padding: 30px 40px 10px 35px;
+  border-radius: 5px;
+}
+
+.header {
+  display: flex;
+	justify-content: center;
+  margin-bottom: 20px;
+}
+
+input {
+  inherits: none;
+}
+input[type="submit"]{
+  border-radius:3px;
+}
+.btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 5px 13px;
+  margin-top: 17px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-block {
+  display: block;
+	float: right;
+}
+
+.add-form {
+  margin-bottom: 16px;
+}
+
+.form-control {
+  margin: 20px 0;
+}
+
+.form-control label {
+	padding-left: 5px;
+  display: block;
+}
+
+.form-control input {
+  width: 100%;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+
+.form-check {
+  display: inline-block;
+  padding-top: 20px;
+  padding-left: 10px;
+	
+}
+
+.checkbox {
+	display: inline-block;
+	margin-left: 10px;
+}
+
+a {
+  color: gray;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+}
+
+.link-block {
+  font-size: 12px;
+  padding-right: 20px;
+  padding-left: 10px;
+  display: inline-block;
+}
+
+.social-media {
+  display: flex;
+  padding-left: 185px;
+  padding-top: 20px;
+  width: 90px;
+}
+
+i {
+  cursor: pointer;
+}
+
+.container-account {
+  background-color:whitesmoke;
+  max-width: 90%;
+  margin: 85px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 1px solid RGB(0,0,0, 0.2);
+  padding: 30px;
+  border-radius: 5px;
+}
+.form-control-account {
+  margin: 12px 0;
+  width: 50%;
+  display:inline-block;
+  padding-right: 20px;
+}
+
+.form-control-account input {
+  margin: 0px;
+  border-radius: 3px;
+  width: 100%;
+  height: 40px;
+  margin-top: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+  border: 1px solid #ced4da;
+}
+
+.form-control-account input:enabled:hover {
+  border-color: #2196F3;
+}
+
+.form-control-account input:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  -webkit-box-shadow: 0,0,0, 0.2rem #a6d5fa;
+  box-shadow: 0,0,0, 0.2rem #a6d5fa;
+  border-color: #2196F3;
+}
+
+ .p-input-icon-right > .p-inputtext {
+  margin-left: 2rem;
+} 
+
+.form-control-main label {
+  padding-left: 20px;
+  display: block;
+}
+
+.info {
+  color: grey;
+  font-size: 12px;
+  padding-left: 20px;
+}
+
+.container-slider {
+  background-image: url("../imgs/slider.jpg");
+  background-position-y: top;
+  background-repeat: space;
+  background-size: 50%;
+  position:relative;
+  width: 100%;
+  height: 300px;
+  margin: 21px auto;
+  min-height: 300px;
+  border: 1px solid RGB(0,0,0, 0.2);
+  padding: 30px 40px 10px 35px;
+  border-radius: 5px;
+}
+
+.container-menu {
+  background: whitesmoke;
+  width: 100%;
+  height: 80px;
+  margin: 25px auto;
+  border: 1px solid RGB(0,0,0, 0.2);
+  border-radius: 5px;
+}
+
+/* Botões do slide */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Animação Fade do Slide */
+/* .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+} */
+
+.menu-content {
+  display: unset;
+  list-style: none;
+}
+
+.social-media-menu {
+  padding-top: 25px;
+  padding-right: 20px;
+  float: right;
+}
+
+.adjust-header {
+  width: 913px;
+  width: 50%;
+  height: 80px;
+}
+
+ul {
+  padding-left: 200px;
+}
+
+li {
+  cursor: pointer;
+  display: inline-block;
+  height: 25px;
+  margin-top: 25px;
+  margin-left: 40px;
+  font-size: 18px;
+}
+
+li:hover {
+  padding-bottom: 50px;
+  border-bottom: 2px solid aquamarine;
+  border-width: 2px;
+}
+
+.container-mercado {
+  background-image: url("../imgs/img1.jpg");
+  width: 50%;
+  margin-top: 100px;
+  margin-left: 100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 5px;
+}
+
+.container-mercado:hover, .container-mercado2:hover {
+  cursor: pointer;
+  border: 1px solid aqua;
+}
+
+
+.container-mercado2 {
+  background-image: url("../imgs/img2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 637px;
+  position: absolute;
+  right: 100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 5px;
+}
+
+.container-footer {
+  background: none;
+  width: 100%;
+  height: 80px;
+  margin-top: 20px;
+  border: 1px solid RGB(0,0,0, 0);
+}
