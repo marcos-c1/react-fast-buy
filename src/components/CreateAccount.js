@@ -65,18 +65,18 @@ const CreateAccount = ({ onAdd }) => {
 			    </div>
                 <div className="form-control-account">
 				    <label>Login</label>
-				    <input type="text" placeholder="" value={login} onChange={(e) => setLogin(e.target.value)}></input>
+				    <input style={{width: "30%", marginLeft: "25px"}} type="text" placeholder="" value={login} onChange={(e) => setLogin(e.target.value)}></input>
 			    </div>
 			    <div className="form-control-account">
 				    <label>Senha</label>
                     <Password value={senha} className="p-password-input" onChange={(e) => setSenha(e.target.value)} toggleMask />
-                    {<span className="info">Tamanho mínimo de 6 caracteres</span>}
+                    {senha ? <span className="info">Utilize letras maiúsculas, minúsculas e números para a sua proteção</span>: <span className="info">Tamanho mínimo de 6 caracteres</span>}
 			    </div>
                 <input type="submit" value="Criar conta" className="btn btn-block"></input>
             </form>
             <div className="button-demo">
                 <div className="card">
-                    <Button label="Voltar" onClick={() => window.location.href="/"} className="p-button-raised p-button-danger" style={{display: "block", float:"left"}}/>
+                    <Button label="Voltar" onClick={() => window.location.href="/"} className="p-button-raised p-button-danger" style={{display: "flex"}}/>
                 </div>
             </div>
         </nav>

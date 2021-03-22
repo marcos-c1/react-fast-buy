@@ -6,11 +6,7 @@ const AddUser = ({ onAdd }) => {
 	const [senha, setSenha] = useState('')
 	const [remember, setRemember] = useState(false)
 
-	// const redefineBack = () => {
-	// 	let body = document.querySelector("body")
-	// 	body.setAttribute("style", "background-image: none;")
-	//   }
-
+	
 
 	const onSubmit = (e) => {
 		e.preventDefault()
@@ -28,9 +24,7 @@ const AddUser = ({ onAdd }) => {
     		setSenha('')
     		setRemember(false)
 			window.location.href = "/main"
-			
 		}
-		
 	}
 	return (
 		<form className="add-form" onSubmit={onSubmit}>
