@@ -1,0 +1,32 @@
+.datatable-templating-demo .table-header {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.datatable-templating-demo .product-image {
+    width: 100px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+    text-align: center;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+    text-align: center;
+}
+
+.p-datatable .p-datatable-footer {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 1rem 2rem;
+}
+
+.footer-pagamento {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+}
