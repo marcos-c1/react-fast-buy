@@ -51,25 +51,25 @@ const Main = ({ onAdd }) => {
     const showSlides = (e) => {
         const containerSlider = document.getElementsByClassName("container-slider")
         const dots = document.getElementsByClassName("dot")
-        const prev = document.getElementsByClassName("prev")
-        const next = document.getElementsByClassName("next")
+        // const prev = document.getElementsByClassName("prev")
+        // const next = document.getElementsByClassName("next")
         const slides = document.getElementsByClassName("mySlides")
         let index = 0;
 
-        if (e.target.id == "dotOne"){
+        if (e.target.id === "dotOne"){
             index = 0;
-            prev[0].style.color = "white"
-            next[0].style.color = "white"
+            //prev[0].style.color = "white"
+            //next[0].style.color = "white"
             containerSlider[0].style.backgroundImage = `url(${slider1})`
-        } else if (e.target.id == "dotTwo"){
+        } else if (e.target.id === "dotTwo"){
             index = 1;
-            prev[0].style.color = "black"
-            next[0].style.color = "black"
+            //prev[0].style.color = "black"
+            //next[0].style.color = "black"
             containerSlider[0].style.backgroundImage = `url(${slider2})`
         } else {
             index = 2;
-            prev[0].style.color = "white"
-            next[0].style.color = "white"
+            //prev[0].style.color = "white"
+            //next[0].style.color = "white"
             containerSlider[0].style.backgroundImage = `url(${slider3})`
         }
 
@@ -78,7 +78,7 @@ const Main = ({ onAdd }) => {
         }
 
         for (let i = 0; i < dots.length; i++){
-            if (dots[index].id == e.target.id){
+            if (dots[index].id === e.target.id){
                 slides[index].style.display = "block"
             }
             else {
@@ -167,6 +167,53 @@ const Main = ({ onAdd }) => {
     const massasEvent = () => {
         window.location.href = "/massas"
     }
+
+    const moveRightToLeft = () => {
+        const divImgs = document.getElementsByClassName("div-imgs")
+        let delay = 2
+
+        for(let i = 1; i < divImgs.length; i++){
+            divImgs[i].style.marginRight = "10px"
+            divImgs[i].style.animationName = "right"
+            divImgs[i].style.transition = "all 0.1 ease"
+            divImgs[i].style.animationDuration = "3s"
+            divImgs[i].style.animationDelay = `${delay}s`
+            delay--
+        }
+            divImgs[0].style.marginRight = "10px"
+            divImgs[0].style.animationName = "right2"
+            divImgs[0].style.transition = "all 0.1 ease"
+            divImgs[0].style.animationDuration = "3s"
+            divImgs[0].style.animationDelay = "3s"
+
+        // if(divImgs[0].style.left === "-1000px"){
+        //     for(let i = 0; i < divImgs.length; i++){
+        //         divImgs[i].style.display = "none"
+        //     }
+        // }
+    }
+
+    const moveLeftToRight = () => {
+        const divImgs = document.getElementsByClassName("div-imgs")
+        let delay = 2
+
+        for (let i = 1; i < divImgs.length; i++){
+            divImgs[i].style.marginRight = "10px"
+            divImgs[i].style.animationName = "left"
+            divImgs[i].style.transition = "all 0.1 ease"
+            divImgs[i].style.animationDuration = "2s"
+            divImgs[i].style.animationDelay = `${delay}s`
+            delay--
+        }
+
+        divImgs[0].style.marginRight = "10px"
+        divImgs[0].style.animationName = "left2"
+        divImgs[0].style.transition = "all 0.8 ease"
+        divImgs[0].style.animationDuration = "4s"
+        divImgs[0].style.animationDelay = "3s"
+        
+    }
+
     return (
     <nav onLoad={displaySlide1()}>
         <div className="container-menu">
@@ -205,8 +252,6 @@ const Main = ({ onAdd }) => {
                 <div className="numbertext">3 / 3</div>
                 <div className="text">Promoção imperdível</div>
             </div>
-            <a className="prev" onClick={showSlides}>&#10094;</a>
-            <a className="next" onClick={showSlides}>&#10095;</a>
             <div className="div-dots">
                 <span className="dot" id="dotOne" onClick={showSlides}></span>
                 <span className="dot" id="dotTwo"onClick={showSlides}></span>
@@ -214,30 +259,32 @@ const Main = ({ onAdd }) => {
             </div>
         </div>
         <nav className="scroll-menu">
+            <a className="prev" onClick={moveRightToLeft}>&#10094;</a>
             <ul className="scrollMenu-content">
                 <div className="container-imgs">
-                    <div className="div-imgs" onClick={docesEvent}>
+                    <div className="div-imgs doces" onClick={docesEvent}>
                         <img alt="Doces" src={doces}></img>
                         <li>Doces</li>
                     </div>
-                    <div className="div-imgs" onClick={bebidasEvent}>
+                    <div className="div-imgs bebidas" onClick={bebidasEvent}>
                         <img alt="Bebidas" src={bebidas}></img>
                         <li>Bebidas</li>
                     </div>
-                    <div className="div-imgs" onClick={carnesEvent}>
+                    <div className="div-imgs carnes" onClick={carnesEvent}>
                         <img alt="Carnes" src={carnes}></img>
                         <li>Carnes</li>
                     </div>
-                    <div className="div-imgs" onClick={massasEvent}>
+                    <div className="div-imgs massas" onClick={massasEvent}>
                         <img alt="Massas" src={massas}></img>
                         <li>Massas</li>
                     </div>
                 </div>
+            <a className="next" onClick={moveLeftToRight}>&#10095;</a>
             </ul>
         </nav>
         <main className="container-mercado" style={{paddingTop:"40px", paddingBottom: "40px"}}>
-            <div className="container-mercado1">
-                <div className="container-mercado2"></div>
+            <div className="container-mercado1" onClick={() => window.location.href = "/mercado1"}>
+                <div className="container-mercado2" onClick={() => window.location.href = "/mercado2"}></div>
             </div>
         </main>
         <footer>
