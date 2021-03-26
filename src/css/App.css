@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
+html {
+  overflow-x: hidden;
+}
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 body {
@@ -21,6 +25,18 @@ body {
   border: 1px solid RGB(0,0,0, 0.2);
   padding: 30px 40px 10px 35px;
   border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(210, 210, 210, 0.8);
+  -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 50%);
+  -moz-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 6px rgb(0 0 0 / 50%);
 }
 
 .header {
@@ -192,7 +208,7 @@ i {
 
 .menu-content {
   display: inline-flex;
-  list-style: none;
+
 }
 
 .menu-bar {
@@ -237,10 +253,6 @@ i {
   }
 }
 
-@media only screen and (min-width: 600px) {
-  
-}
-
 .social-media-menu {
   display: inline-flex;
   justify-content: flex-end;
@@ -280,7 +292,6 @@ i {
   min-height: 300px;
   border-radius: 5px;
 }
-
 /* Container Dots */
 .div-dots {
   display: inline-flex;
@@ -288,7 +299,6 @@ i {
   align-items: flex-end;
   margin-left: 640px;
 }
-
 /* Botões do slide */
 .dot {
   cursor: pointer;
@@ -324,7 +334,6 @@ i {
   font-size: 18px;
   border-radius: 0 3px 3px 0;
 }
-
 
 .menu-content > li:hover {
   padding-bottom: 50px;
@@ -376,21 +385,19 @@ i {
   margin-top: 20px;
   border: 1px solid RGB(0,0,0, 0);
 }
-
 /* Hide the images by default */
 .mySlides {
   display: none;
 }
-
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 81%;
   width: auto;
   margin-top: -22px;
   padding: 16px;
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
@@ -398,6 +405,25 @@ i {
   user-select: none;
 }
 
+@keyframes right {
+  from { right: 0px; }
+  to { left: -1000px; }
+}
+
+@keyframes right2 {
+  from { left: 10px; }
+  to { left: -1000px }
+}
+
+@keyframes left {
+  from { right: 0px; }
+  to { left: 1200px; }
+}
+
+@keyframes left2 {
+  from { right: -220px; }
+  to { right: -1400px; }
+}
 
 .next {
   right: 0;
@@ -408,7 +434,6 @@ i {
   color:"red";
   background-color: rgba(0,0,0,0.8);
 }
-
 
 .text {
   color: #bbb;
@@ -432,7 +457,6 @@ i {
   background-color: #717171;
 }
 
-
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
@@ -441,13 +465,13 @@ i {
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from { opacity: .4 }
+  to { opacity: 1 }
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from { opacity: .4 }
+  to { opacity: 1 }
 }
 
 .sliderImage1 {
@@ -472,8 +496,9 @@ i {
   width: 100%;
   height: 100px;
   margin-top: 40px;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.2);
   border-radius: 5px;
+  background: whitesmoke;
 }
 
 .scrollMenu-content {
@@ -481,18 +506,30 @@ i {
 }
 
 .container-imgs {
+  position: absolute;
   margin-left: 300px;
 }
 .div-imgs {
-  display: inline-block;
+  position: absolute;
   height: 100px;
   margin: 0px;
   width: 200px;
   padding: 0px 50px 0px 50px;
 }
 
+.div-imgs.bebidas {
+  left: 200px;
+}
+
+.div-imgs.carnes {
+  left: 400px;
+}
+
+.div-imgs.massas {
+  left: 600px;
+}
+
 .div-imgs > li  {
-  list-style: none;
   width: 65px;
   font-size: 15px;
   padding-left: 25px;
@@ -503,6 +540,7 @@ i {
   padding-top: 5px;
   padding-left: 20px;
   width: 80%;
+  margin-right: 100px;
   position: relative;
 }
 
@@ -510,5 +548,109 @@ i {
   cursor: pointer;
   transition: 0.6s ease;
   user-select: none;
-  background-color: rgba(235, 117, 117, 0.4);
+  background-color: rgba(194, 101, 101, 0.4);
 } 
+
+.datatable-templating-demo {
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.5);
+  margin-bottom: 5px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+}
+  
+.header-pagamento {
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+  font-size: 25px;
+  text-shadow: 1px 20px rgba(0,0,0,0.2);
+  margin: 25px auto;
+  width: 100%;
+  padding-top: 25px;
+  padding-bottom: 5px;
+}
+
+.container-pagamento {
+  width: 80%;
+  margin: 50px auto;
+  /* border: 1px solid rgba(0, 0, 0, 0.2); */
+}
+
+.container-paymentMethods {
+  /* Aplicar nas divisórias */
+  margin: 0px 100px 37px 138px;
+  height: 600px;
+  width: 80%;
+  /* border: 1px solid rgba(0, 0, 0, 0.2); */
+}
+
+.adress, .paymentMethods, .promotionalCode {
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.5);
+  margin-bottom: 5px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+}
+
+.adress > label, .paymentMethods > label, .promotionalCode > label {
+  display: flex;
+  flex-flow: row;
+  padding: 8px;
+  flex-direction: row;
+  margin-bottom: 10px;
+  background: black;
+  color: #f1f1f1;
+  width: 100%;
+}
+
+.paymentMethods > small {
+  margin: 10px;
+  padding-top: 15px;
+  padding-right: 745px;
+  border-bottom: 2px solid black;
+}
+
+.p-button.p-button-success {
+  background: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  float: right;
+  margin-right: 130px;
+}
+
+.p-button.p-button-success:focus {
+  outline: none;
+}
+
+.p-button.p-button-success:active {
+  transform: scale(0.98);
+}
+
+.p-button.p-button-danger {
+  background: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-left: 140px;
+}
+
+.p-button-danger:active {
+  transform: scale(0.98);
+}
+
+.p-button-danger:active {
+  outline: none;
+}
+
+.p-datatable .p-datatable-header {
+    background: black;
+    color: white;
+    /* border: 1px solid #e9ecef; */
+    border-width: 1px 0 1px 0;
+    padding: 1rem 1rem;
+    font-weight: 600;
+}
+
+.p-datatable .p-datatable-footer {
+    background: rgb(0,0,0,1);
+    color: white;
+    /* border: 1px solid #e9ecef; */
+    border-width: 0 0 1px 0;
+    padding: 1rem 1rem;
+    font-weight: 600;
+}

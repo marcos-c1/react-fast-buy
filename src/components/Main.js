@@ -1,88 +1,88 @@
-import React, { useState } from 'react'
-import { InputText } from 'primereact/inputtext'
-import slider1 from '../imgs/img1.jpg'
-import slider2 from '../imgs/img2.png'
-import slider3 from '../imgs/slider.jpg'
-import doces from '../imgs/doces.png'
-import bebidas from '../imgs/bebidas.png'
-import carnes from '../imgs/carne.png'
-import massas from '../imgs/massas.png'
+import React, { useState } from 'react';
+import { InputText } from 'primereact/inputtext';
+import slider1 from '../imgs/img1.jpg';
+import slider2 from '../imgs/img2.png';
+import slider3 from '../imgs/slider.jpg';
+import doces from '../imgs/doces.png';
+import bebidas from '../imgs/bebidas.png';
+import carnes from '../imgs/carne.png';
+import massas from '../imgs/massas.png';
 
 const Main = ({ onAdd }) => {
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState('');
 
     const onClick = (e) => {
-	    window.location.href = "https://github.com/marcos-c1"
+	    window.location.href = "https://github.com/marcos-c1";
 	}
 
     const searchEvent = (e) => {
-        const searchBar = document.getElementsByClassName("p-inputtext")
+        const searchBar = document.getElementsByClassName("p-inputtext");
 
-        setValue(e.target.value)
+        setValue(e.target.value);
 
         if(value){
-            searchBar.search.style.outline = "0 none"
-            searchBar.search.style.boxShadow = "0 0 0 0.2rem #a6d5fa"
-            searchBar.search.style.borderColor = "#2196F3"
+            searchBar.search.style.outline = "0 none";
+            searchBar.search.style.boxShadow = "0 0 0 0.2rem #a6d5fa";
+            searchBar.search.style.borderColor = "#2196F3";
         }
     }
 
     const searchBarEvent = (e) => {
-        const searchBar = document.getElementsByClassName("p-inputtext")
-        const placeHolder = document.getElementById("search")
+        const searchBar = document.getElementsByClassName("p-inputtext");
+        const placeHolder = document.getElementById("search");
 
         if(value){
-            const id = Math.ceil( 10000 * Math.random() + 1)
-            onAdd({ id, value })
+            const id = Math.ceil( 10000 * Math.random() + 1);
+            onAdd({ id, value });
             // Posso colocar o id no param
-            window.location.href = `/search/${value}`
+            window.location.href = `/search/${value}`;
         }
 
         else {
-            placeHolder.placeholder = "Insira na barra de pesquisa"
-            searchBar.search.style.outline = "0 none"
-            searchBar.search.style.boxShadow = "0 0 0 0.2rem #f5043c"
-            searchBar.search.style.borderColor = "#f1f1f1"
+            placeHolder.placeholder = "Insira na barra de pesquisa";
+            searchBar.search.style.outline = "0 none";
+            searchBar.search.style.boxShadow = "0 0 0 0.2rem #f5043c";
+            searchBar.search.style.borderColor = "#f1f1f1";
         }
     }
 
         
     
     const showSlides = (e) => {
-        const containerSlider = document.getElementsByClassName("container-slider")
-        const dots = document.getElementsByClassName("dot")
-        const prev = document.getElementsByClassName("prev")
-        const next = document.getElementsByClassName("next")
-        const slides = document.getElementsByClassName("mySlides")
+        const containerSlider = document.getElementsByClassName("container-slider");
+        const dots = document.getElementsByClassName("dot");
+        // const prev = document.getElementsByClassName("prev")
+        // const next = document.getElementsByClassName("next")
+        const slides = document.getElementsByClassName("mySlides");
         let index = 0;
 
-        if (e.target.id == "dotOne"){
+        if (e.target.id === "dotOne"){
             index = 0;
-            prev[0].style.color = "white"
-            next[0].style.color = "white"
+            //prev[0].style.color = "white"
+            //next[0].style.color = "white"
             containerSlider[0].style.backgroundImage = `url(${slider1})`
-        } else if (e.target.id == "dotTwo"){
+        } else if (e.target.id === "dotTwo"){
             index = 1;
-            prev[0].style.color = "black"
-            next[0].style.color = "black"
+            //prev[0].style.color = "black"
+            //next[0].style.color = "black"
             containerSlider[0].style.backgroundImage = `url(${slider2})`
         } else {
             index = 2;
-            prev[0].style.color = "white"
-            next[0].style.color = "white"
+            //prev[0].style.color = "white"
+            //next[0].style.color = "white"
             containerSlider[0].style.backgroundImage = `url(${slider3})`
         }
 
         for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+            slides[parseInt(i)].style.display = "none";
         }
 
         for (let i = 0; i < dots.length; i++){
-            if (dots[index].id == e.target.id){
-                slides[index].style.display = "block"
+            if (dots[parseInt(index)].id === e.target.id){
+                slides[parseInt(index)].style.display = "block"
             }
             else {
-                slides[i].style.display = "none"
+                slides[parseInt(i)].style.display = "none"
             }
         }
     }
@@ -167,6 +167,53 @@ const Main = ({ onAdd }) => {
     const massasEvent = () => {
         window.location.href = "/massas"
     }
+
+    const moveRightToLeft = () => {
+        const divImgs = document.getElementsByClassName("div-imgs")
+        let delay = 2
+
+        for(let i = 1; i < divImgs.length; i++){
+            divImgs[i].style.marginRight = "10px"
+            divImgs[i].style.animationName = "right"
+            divImgs[i].style.transition = "all 0.1 ease"
+            divImgs[i].style.animationDuration = "3s"
+            divImgs[i].style.animationDelay = `${delay}s`
+            delay--
+        }
+            divImgs[0].style.marginRight = "10px"
+            divImgs[0].style.animationName = "right2"
+            divImgs[0].style.transition = "all 0.1 ease"
+            divImgs[0].style.animationDuration = "3s"
+            divImgs[0].style.animationDelay = "3s"
+
+        // if(divImgs[0].style.left === "-1000px"){
+        //     for(let i = 0; i < divImgs.length; i++){
+        //         divImgs[i].style.display = "none"
+        //     }
+        // }
+    }
+
+    const moveLeftToRight = () => {
+        const divImgs = document.getElementsByClassName("div-imgs")
+        let delay = 2
+
+        for (let i = 1; i < divImgs.length; i++){
+            divImgs[i].style.marginRight = "10px"
+            divImgs[i].style.animationName = "left"
+            divImgs[i].style.transition = "all 0.1 ease"
+            divImgs[i].style.animationDuration = "2s"
+            divImgs[i].style.animationDelay = `${delay}s`
+            delay--
+        }
+
+        divImgs[0].style.marginRight = "10px"
+        divImgs[0].style.animationName = "left2"
+        divImgs[0].style.transition = "all 0.8 ease"
+        divImgs[0].style.animationDuration = "4s"
+        divImgs[0].style.animationDelay = "3s"
+        
+    }
+
     return (
     <nav onLoad={displaySlide1()}>
         <div className="container-menu">
@@ -205,8 +252,6 @@ const Main = ({ onAdd }) => {
                 <div className="numbertext">3 / 3</div>
                 <div className="text">Promoção imperdível</div>
             </div>
-            <a className="prev" onClick={showSlides}>&#10094;</a>
-            <a className="next" onClick={showSlides}>&#10095;</a>
             <div className="div-dots">
                 <span className="dot" id="dotOne" onClick={showSlides}></span>
                 <span className="dot" id="dotTwo"onClick={showSlides}></span>
@@ -214,30 +259,32 @@ const Main = ({ onAdd }) => {
             </div>
         </div>
         <nav className="scroll-menu">
+            <a className="prev" onClick={moveRightToLeft}>&#10094;</a>
             <ul className="scrollMenu-content">
                 <div className="container-imgs">
-                    <div className="div-imgs" onClick={docesEvent}>
+                    <div className="div-imgs doces" onClick={docesEvent}>
                         <img alt="Doces" src={doces}></img>
                         <li>Doces</li>
                     </div>
-                    <div className="div-imgs" onClick={bebidasEvent}>
+                    <div className="div-imgs bebidas" onClick={bebidasEvent}>
                         <img alt="Bebidas" src={bebidas}></img>
                         <li>Bebidas</li>
                     </div>
-                    <div className="div-imgs" onClick={carnesEvent}>
+                    <div className="div-imgs carnes" onClick={carnesEvent}>
                         <img alt="Carnes" src={carnes}></img>
                         <li>Carnes</li>
                     </div>
-                    <div className="div-imgs" onClick={massasEvent}>
+                    <div className="div-imgs massas" onClick={massasEvent}>
                         <img alt="Massas" src={massas}></img>
                         <li>Massas</li>
                     </div>
                 </div>
+            <a className="next" onClick={moveLeftToRight}>&#10095;</a>
             </ul>
         </nav>
         <main className="container-mercado" style={{paddingTop:"40px", paddingBottom: "40px"}}>
-            <div className="container-mercado1">
-                <div className="container-mercado2"></div>
+            <div className="container-mercado1" onClick={() => window.location.href = "/mercado1"}>
+                <div className="container-mercado2" onClick={() => window.location.href = "/mercado2"}></div>
             </div>
         </main>
         <footer>
