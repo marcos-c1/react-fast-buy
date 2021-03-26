@@ -1,15 +1,15 @@
-import { useState } from 'react'
-import '../css/App.css'
+import { useState } from "react"
+import "../css/App.css"
 
 const AddUser = ({ onAdd }) => {
-	const [login, setLogin] = useState('')
-	const [senha, setSenha] = useState('')
-	const [remember, setRemember] = useState(false)
+	const [login, setLogin] = useState('');
+	const [senha, setSenha] = useState('');
+	const [remember, setRemember] = useState(false);
 
 	
 
 	const onSubmit = (e) => {
-		e.preventDefault()
+		e.preventDefault();
 
 		if (!login){
 			alert("Insira o login!")
@@ -19,7 +19,7 @@ const AddUser = ({ onAdd }) => {
 		}
 		
 		else {	
-			onAdd({ login, senha, remember })
+			onAdd({ login, senha, remember });
 			setLogin('')
     		setSenha('')
     		setRemember(false)

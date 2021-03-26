@@ -26,7 +26,7 @@ const BebidasSession = ({ onAdd }) => {
         const res = await fetch('http://localhost:5000/bebidas')
         const data = await res.json()
 
-        return data
+        return data;
     }
 
     const itemTemplate = (data) => {

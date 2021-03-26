@@ -1,21 +1,21 @@
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
-import { useState } from 'react'
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { useState } from 'react';
 import './css/App.css';
-import Header from './components/Header'
-import AddUser from './components/AddUser'
-import CreateUser from './components/CreateUser'
-import Login from './components/Login'
-import Main from './components/Main'
-import CreateAccount from './components/CreateAccount'
-import DocesSession from './components/DocesSession'
-import BebidasSession from './components/BebidasSession'
-import CarnesSession from './components/CarnesSession'
-import MassasSession from './components/MassasSession'
-import Pagamento from './components/Pagamento'
-import bImg from './imgs/back-img.jpeg'
+import Header from './components/Header';
+import AddUser from './components/AddUser';
+import CreateUser from './components/CreateUser';
+import Login from './components/Login';
+import Main from './components/Main';
+import CreateAccount from './components/CreateAccount';
+import DocesSession from './components/DocesSession';
+import BebidasSession from './components/BebidasSession';
+import CarnesSession from './components/CarnesSession';
+import MassasSession from './components/MassasSession';
+import Pagamento from './components/Pagamento';
+import bImg from './imgs/back-img.jpeg';
 
 function App() {
   const [logins, setLogins] = useState([])
@@ -51,6 +51,7 @@ function App() {
   
    const redefineBack = () => {
 	 	  let body = document.querySelector("body")
+      body.style.backgroundImage = "unset"
 		  body.style.backgroundColor = "#fff"//"rgb(0, 0, 0, 1)"
 	  }
 
@@ -82,32 +83,32 @@ function App() {
           <CreateAccount onAdd={AddUsers}/>
         </>
       )} />
-      <Route path="/main" onLoad={redefineBack()} render={() => (
-        <>
+      <Route path="/main" render={() => (
+        <div onLoad={bodyBackImg()} >
         <Main onAdd={AddSearch} />
-        </>
+        </div>
       )}/> 
-      <Route path="/doces" exact render={() => (
+      <Route path="/doces"  exact render={() => (
         <>
         <DocesSession onAdd={AddToCart}/>
         </>
       )}/>
-      <Route path="/bebidas" exact render={() => (
+      <Route path="/bebidas"  exact render={() => (
         <>
         <BebidasSession onAdd={AddToCart}/>
         </>
       )} />
-      <Route path="/carnes" exact render={() => {
+      <Route path="/carnes"  exact render={() => (
         <>
         <CarnesSession onAdd={AddToCart} />
         </>
-      }}/>
-      <Route path="/massas" exact render={() => {
+      )}/>
+      <Route path="/massas" exact render={() => (
         <>
         <MassasSession onAdd={AddToCart}/>
         </>
-      }}/>
-      <Route path="/pagamento" exact render={() => (
+      )}/>
+      <Route path="/pagamento" onLoad={redefineBack()} exact render={() => (
         <>
         <Pagamento />
         </>

@@ -1,16 +1,16 @@
-import { useState, useRef } from 'react'
-import {Password} from 'primereact/password'
-import { Button } from 'primereact/button'
-import { Toast } from 'primereact/toast'
-import PropTypes from 'prop-types'
+import { useState, useRef } from 'react';
+import {Password} from 'primereact/password';
+import { Button } from 'primereact/button';
+import { Toast } from 'primereact/toast';
+import PropTypes from 'prop-types';
 
 const CreateAccount = ({ onAdd }) => {
-    const [nome, setNome] = useState('')
-    const [endereco, setEndereco] = useState('')
-    const [bairro, setBairro] = useState('')
-    const [celular, setCelular] = useState('')
-    const [login, setLogin] = useState('')
-	const [senha, setSenha] = useState('')
+    const [nome, setNome] = useState('');
+    const [endereco, setEndereco] = useState('');
+    const [bairro, setBairro] = useState('');
+    const [celular, setCelular] = useState('');
+    const [login, setLogin] = useState('');
+	const [senha, setSenha] = useState('');
     
     const toast = useRef(null);
 
@@ -19,7 +19,7 @@ const CreateAccount = ({ onAdd }) => {
     }
 
     const onSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
     
         if (!nome || !endereco || !bairro || !celular || !login ){
             alert("Há campos vazios")
@@ -27,14 +27,13 @@ const CreateAccount = ({ onAdd }) => {
         }
             
         else {
-            console.log(e)
             accept()
-            await onAdd({ nome, endereco, bairro, celular, login, senha })
-            setNome('')
-            setEndereco('')
-            setBairro('')
-            setLogin('')
-            setSenha('')
+            await onAdd({ nome, endereco, bairro, celular, login, senha });
+            setNome('');
+            setEndereco('');
+            setBairro('');
+            setLogin('');
+            setSenha('');
             setTimeout(() => {
                 window.location.href = "/main"
             }, 2500)

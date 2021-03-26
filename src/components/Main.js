@@ -1,59 +1,59 @@
-import React, { useState } from 'react'
-import { InputText } from 'primereact/inputtext'
-import slider1 from '../imgs/img1.jpg'
-import slider2 from '../imgs/img2.png'
-import slider3 from '../imgs/slider.jpg'
-import doces from '../imgs/doces.png'
-import bebidas from '../imgs/bebidas.png'
-import carnes from '../imgs/carne.png'
-import massas from '../imgs/massas.png'
+import React, { useState } from 'react';
+import { InputText } from 'primereact/inputtext';
+import slider1 from '../imgs/img1.jpg';
+import slider2 from '../imgs/img2.png';
+import slider3 from '../imgs/slider.jpg';
+import doces from '../imgs/doces.png';
+import bebidas from '../imgs/bebidas.png';
+import carnes from '../imgs/carne.png';
+import massas from '../imgs/massas.png';
 
 const Main = ({ onAdd }) => {
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState('');
 
     const onClick = (e) => {
-	    window.location.href = "https://github.com/marcos-c1"
+	    window.location.href = "https://github.com/marcos-c1";
 	}
 
     const searchEvent = (e) => {
-        const searchBar = document.getElementsByClassName("p-inputtext")
+        const searchBar = document.getElementsByClassName("p-inputtext");
 
-        setValue(e.target.value)
+        setValue(e.target.value);
 
         if(value){
-            searchBar.search.style.outline = "0 none"
-            searchBar.search.style.boxShadow = "0 0 0 0.2rem #a6d5fa"
-            searchBar.search.style.borderColor = "#2196F3"
+            searchBar.search.style.outline = "0 none";
+            searchBar.search.style.boxShadow = "0 0 0 0.2rem #a6d5fa";
+            searchBar.search.style.borderColor = "#2196F3";
         }
     }
 
     const searchBarEvent = (e) => {
-        const searchBar = document.getElementsByClassName("p-inputtext")
-        const placeHolder = document.getElementById("search")
+        const searchBar = document.getElementsByClassName("p-inputtext");
+        const placeHolder = document.getElementById("search");
 
         if(value){
-            const id = Math.ceil( 10000 * Math.random() + 1)
-            onAdd({ id, value })
+            const id = Math.ceil( 10000 * Math.random() + 1);
+            onAdd({ id, value });
             // Posso colocar o id no param
-            window.location.href = `/search/${value}`
+            window.location.href = `/search/${value}`;
         }
 
         else {
-            placeHolder.placeholder = "Insira na barra de pesquisa"
-            searchBar.search.style.outline = "0 none"
-            searchBar.search.style.boxShadow = "0 0 0 0.2rem #f5043c"
-            searchBar.search.style.borderColor = "#f1f1f1"
+            placeHolder.placeholder = "Insira na barra de pesquisa";
+            searchBar.search.style.outline = "0 none";
+            searchBar.search.style.boxShadow = "0 0 0 0.2rem #f5043c";
+            searchBar.search.style.borderColor = "#f1f1f1";
         }
     }
 
         
     
     const showSlides = (e) => {
-        const containerSlider = document.getElementsByClassName("container-slider")
-        const dots = document.getElementsByClassName("dot")
+        const containerSlider = document.getElementsByClassName("container-slider");
+        const dots = document.getElementsByClassName("dot");
         // const prev = document.getElementsByClassName("prev")
         // const next = document.getElementsByClassName("next")
-        const slides = document.getElementsByClassName("mySlides")
+        const slides = document.getElementsByClassName("mySlides");
         let index = 0;
 
         if (e.target.id === "dotOne"){
@@ -74,15 +74,15 @@ const Main = ({ onAdd }) => {
         }
 
         for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+            slides[parseInt(i)].style.display = "none";
         }
 
         for (let i = 0; i < dots.length; i++){
-            if (dots[index].id === e.target.id){
-                slides[index].style.display = "block"
+            if (dots[parseInt(index)].id === e.target.id){
+                slides[parseInt(index)].style.display = "block"
             }
             else {
-                slides[i].style.display = "none"
+                slides[parseInt(i)].style.display = "none"
             }
         }
     }
