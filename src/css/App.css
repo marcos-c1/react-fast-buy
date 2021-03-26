@@ -7,6 +7,7 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 body {
@@ -207,7 +208,7 @@ i {
 
 .menu-content {
   display: inline-flex;
-  list-style: none;
+
 }
 
 .menu-bar {
@@ -252,10 +253,6 @@ i {
   }
 }
 
-@media only screen and (min-width: 600px) {
-  
-}
-
 .social-media-menu {
   display: inline-flex;
   justify-content: flex-end;
@@ -295,7 +292,6 @@ i {
   min-height: 300px;
   border-radius: 5px;
 }
-
 /* Container Dots */
 .div-dots {
   display: inline-flex;
@@ -303,7 +299,6 @@ i {
   align-items: flex-end;
   margin-left: 640px;
 }
-
 /* Botões do slide */
 .dot {
   cursor: pointer;
@@ -339,7 +334,6 @@ i {
   font-size: 18px;
   border-radius: 0 3px 3px 0;
 }
-
 
 .menu-content > li:hover {
   padding-bottom: 50px;
@@ -391,12 +385,10 @@ i {
   margin-top: 20px;
   border: 1px solid RGB(0,0,0, 0);
 }
-
 /* Hide the images by default */
 .mySlides {
   display: none;
 }
-
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
@@ -414,25 +406,24 @@ i {
 }
 
 @keyframes right {
-  from {right: 0px;}
-  to {left: -1000px;}
+  from { right: 0px; }
+  to { left: -1000px; }
 }
 
 @keyframes right2 {
-  from {left: 10px;}
-  to {left: -1000px}
+  from { left: 10px; }
+  to { left: -1000px }
 }
 
 @keyframes left {
-  from {right: 0px;}
-  to {left: 1200px;}
+  from { right: 0px; }
+  to { left: 1200px; }
 }
 
 @keyframes left2 {
-  from {right: -220px;}
-  to {right: -1400px;}
+  from { right: -220px; }
+  to { right: -1400px; }
 }
-
 
 .next {
   right: 0;
@@ -443,7 +434,6 @@ i {
   color:"red";
   background-color: rgba(0,0,0,0.8);
 }
-
 
 .text {
   color: #bbb;
@@ -467,7 +457,6 @@ i {
   background-color: #717171;
 }
 
-
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
@@ -476,13 +465,13 @@ i {
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from { opacity: .4 }
+  to { opacity: 1 }
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from { opacity: .4 }
+  to { opacity: 1 }
 }
 
 .sliderImage1 {
@@ -540,10 +529,7 @@ i {
   left: 600px;
 }
 
-
-
 .div-imgs > li  {
-  list-style: none;
   width: 65px;
   font-size: 15px;
   padding-left: 25px;
@@ -565,15 +551,19 @@ i {
   background-color: rgba(194, 101, 101, 0.4);
 } 
 
+.datatable-templating-demo {
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.5);
+  margin-bottom: 5px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+}
+  
 .header-pagamento {
-  color: rgba(0,0,0,0.8);
+  color: rgba(0, 0, 0, 1);
   text-align: center;
   font-size: 25px;
-  text-shadow: 1px 2px #f1f1f1;
+  text-shadow: 1px 20px rgba(0,0,0,0.2);
   margin: 25px auto;
   width: 100%;
-  border-top: .2px solid rgba(0, 0, 0, 0.2);
-  border-bottom: .2px solid rgba(0, 0, 0, 0.2);
   padding-top: 25px;
   padding-bottom: 5px;
 }
@@ -581,20 +571,15 @@ i {
 .container-pagamento {
   width: 80%;
   margin: 50px auto;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  /* border: 1px solid rgba(0, 0, 0, 0.2); */
 }
 
 .container-paymentMethods {
   /* Aplicar nas divisórias */
-  margin: 100px auto;
-  height: 500px;
-  padding: 40px;
+  margin: 0px 100px 37px 138px;
+  height: 600px;
   width: 80%;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.paymentMethods > ul > li {
-  list-style: none;
+  /* border: 1px solid rgba(0, 0, 0, 0.2); */
 }
 
 .adress, .paymentMethods, .promotionalCode {
@@ -606,6 +591,7 @@ i {
 .adress > label, .paymentMethods > label, .promotionalCode > label {
   display: flex;
   flex-flow: row;
+  padding: 8px;
   flex-direction: row;
   margin-bottom: 10px;
   background: black;
@@ -618,4 +604,53 @@ i {
   padding-top: 15px;
   padding-right: 745px;
   border-bottom: 2px solid black;
+}
+
+.p-button.p-button-success {
+  background: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  float: right;
+  margin-right: 130px;
+}
+
+.p-button.p-button-success:focus {
+  outline: none;
+}
+
+.p-button.p-button-success:active {
+  transform: scale(0.98);
+}
+
+.p-button.p-button-danger {
+  background: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-left: 140px;
+}
+
+.p-button-danger:active {
+  transform: scale(0.98);
+}
+
+.p-button-danger:active {
+  outline: none;
+}
+
+.p-datatable .p-datatable-header {
+    background: black;
+    color: white;
+    /* border: 1px solid #e9ecef; */
+    border-width: 1px 0 1px 0;
+    padding: 1rem 1rem;
+    font-weight: 600;
+}
+
+.p-datatable .p-datatable-footer {
+    background: rgb(0,0,0,1);
+    color: white;
+    /* border: 1px solid #e9ecef; */
+    border-width: 0 0 1px 0;
+    padding: 1rem 1rem;
+    font-weight: 600;
 }

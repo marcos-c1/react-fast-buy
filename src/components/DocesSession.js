@@ -6,8 +6,8 @@ import '../css/DataScrollerDemo.css';
 
 const DocesSession = ({ onAdd }) => {
     const [doces, setDoces] = useState([]);
-    const [carrinho, setCarrinho] = useState([])
-    const [qtdProduto, setQtd] = useState(1)
+    const [carrinho, setCarrinho] = useState([]);
+    const [qtdProduto, setQtd] = useState(1);
     const ds = useRef(null);
 
     useEffect(() => {
@@ -23,10 +23,10 @@ const DocesSession = ({ onAdd }) => {
     //console.log(...doces)
 
     const fetchDoces = async () => {
-        const res = await fetch('http://localhost:5000/doces')
+        const res = await fetch('http://localhost:5000/doces');
         const data = await res.json()
 
-        return data
+        return data;
     }
 
     const computeCart = async (e) => {
@@ -49,7 +49,7 @@ const DocesSession = ({ onAdd }) => {
     const itemTemplate = (data) => {
         
         return (
-            <div className="product-item" >
+            <div className="product-item">
                 <img src={`showcase/demo/images/product/${data.image}`} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={data.name} />
                 <div className="product-detail">
                     <div className="product-name" >{data.name} </div>

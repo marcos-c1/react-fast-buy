@@ -4,15 +4,24 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
+import applePay from '../imgs/apple-pay.png';
 import '../css/ToastDemo.css';
 import '../css/DataTableDemo.css';
+import cupom from '../imgs/cupom.png';
 
 const Pagamento = () => {
     const [compras, setCompra] = useState([]);
+    const [pagamento, setPagamento] = useState(false);
+    const [cep, setCEP] = useState('');
     const toast = useRef(null);
 
-    const showSuccess = () => {
+    const showSuccess = (e) => {
+        e.preventDefault()
         toast.current.show({severity:'success', summary: 'Pagamento aceito!', detail:'Seu pagamento foi aceito e será encaminhado em alguns minutos.', life: 3000});
+        setTimeout(() => {
+            window.location.href = "/main"
+        }, 2500)
+        
     }
 
     const showError = () => {
@@ -21,20 +30,20 @@ const Pagamento = () => {
 
     useEffect(() => {
         const getCompras = async () => {
-            const ComprasFromServer = await fetchCompras()
-            setCompra(ComprasFromServer)
+            const ComprasFromServer = await fetchCompras();
+            setCompra(ComprasFromServer);
         } 
         
-        getCompras()
+        getCompras();
     }, []);
 
     /* O backend ainda não está implementado nessa parte
     os dados retornos são apenas um esboço */
     const fetchCompras = async () => {
-        const res = await fetch('http://localhost:5000/compras')
-        const data = await res.json()
+        const res = await fetch('http://localhost:5000/compras');
+        const data = await res.json();
 
-        return data
+        return data;
     }
 
     const formatCurrency = (value) => {
@@ -56,9 +65,9 @@ const Pagamento = () => {
     const priceTotal = () => {
         let totalPrice = 0
         compras.forEach(({quantity, price}) => {
-            totalPrice += quantity * price
+            totalPrice += quantity * price;
         })
-        return formatCurrency(totalPrice)
+        return formatCurrency(totalPrice);
     }
 
     const statusBodyTemplate = (rowData) => {
@@ -66,26 +75,26 @@ const Pagamento = () => {
     }
 
     const header = (
-        <div className="table-header">
+        <div className="table-header" >
             Lista de Compras
         </div>
     );
     const footer = `Total: ${priceTotal()}`;
 
     const checkInput = (e) => {
-        const liCheckElements = document.getElementsByTagName("li")
-        for (let i = 0; i < liCheckElements.lenght; i++){
-            if (liCheckElements[i] === e.target){
-                liCheckElements[i].checked = true
-            }
-            else {
-                liCheckElements[i].checked = false
-                liCheckElements[i].disabled = true
-            }
-                
-        }
-        console.log(liCheckElements, e.target.checked)
+        const optionOne = document.getElementById("buttonOne");
+        const optionTwo = document.getElementById("buttonTwo");
+        const optionThree = document.getElementById("buttonThree");
+
+        if (optionOne === e.target)
+            { optionTwo.checked = false; optionThree.checked = false }
+        else if (optionTwo === e.target)
+            { optionOne.checked = false; optionThree.checked = false }
+        else
+            { optionOne.checked = false; optionTwo.checked = false }
+        
     }
+
     return (
         <nav className="nav-pagamento">
             <Toast ref={toast} />
@@ -106,27 +115,45 @@ const Pagamento = () => {
                     </div>
                 </div>
             </div>
-            <div className="container-paymentMethods">
-                <div className="adress">
-                    <label>Endereço de entrega</label>
+            <form onSubmit={showSuccess}>
+                <div className="container-paymentMethods">
+                    <div className="adress">
+                        <label>Endereço de entrega</label>
+                        <p style={{textAlign: "center", marginBottom: "10px", fontWeight: "bold", fontSize: "18px"}}>Dados Pessoais</p>
+                        <ul style={{marginLeft: "60px"}}>
+                            <li style={{paddingBottom: "10px"}}>Username</li>
+                            <li style={{paddingBottom: "20px"}}>CEP:<input type="text" style={{marginLeft: "10px", borderRadius: "3px", borderWidth: "1px", height: "25px"}}onChange={(e) => setCEP(e.target.value)}></input><i className="pi pi-send" style={{display: "inline-flex", marginLeft: "10px", marginTop: "10px"}} /></li>
+                            <li style={{paddingBottom: "20px"}}><small>Quando o usuário inserir o CEP vai aparecer uma tela abaixo com a localização da sua quadra e rua a partir da API do Correios</small></li>
+                        </ul>
+                    </div>
+                    <div className="paymentMethods">
+                        <label>Método de Pagamento</label>
+                        <small>Selecione uma das opções abaixo: </small>
+                        <ul style={{marginTop: "15px"}}>
+                            <li style={{margin: "10px", paddingBottom: "5px", borderBottom: "1px solid rgb(0, 0, 0, 0.2)"}}>
+                                <input type="checkbox" id="buttonOne" onChange={checkInput} style={{marginRight: "10px"}}></input>
+                                Cartão de Crédito 
+                                <img alt="Visa & MasterCard" title="Visa & MasterCard" src="http://www.credit-card-logos.com/images/multiple_credit-card-logos-2/credit_card_logos_28.gif" style={{width: "100px", height: "30px", marginLeft: "20px"}} border="0" />
+                                </li>
+                            <li style={{margin: "10px", paddingBottom: "5px", borderBottom: "1px solid rgb(0, 0, 0, 0.2)"}}><input type="checkbox" id="buttonTwo" onChange={checkInput} style={{marginRight: "10px"}}></input>
+                            Apple Pay 
+                            <img alt="Apple Pay" title="Apple Pay" style={{width: "70px", height: "30px", marginLeft: "20px"}} src={applePay} />
+                            </li>
+                            <li style={{margin: "10px", paddingBottom: "5px", borderBottom: "1px solid rgb(0, 0, 0, 0.2)"}}><input type="checkbox" id="buttonThree" onChange={checkInput} style={{marginRight: "10px"}}></input>
+                            Dinheiro
+                            <i className="pi pi-money-bill" style={{fontSize: "20px", marginLeft: "20px"}}></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="promotionalCode">
+                        <label>Cupons Disponíveis</label>
+                        <img src={cupom} style={{width: "70px", marginLeft: "20px", cursor: "pointer"}}alt="Cupom de Desconto"></img>
+                        <h4 style={{display: "inline-block", position: "absolute", marginLeft: "20px", marginTop: "25px"}}>Nenhum cupom disponível</h4>
+                    </div>
                 </div>
-                <div className="paymentMethods">
-                    <label>Método de Pagamento</label>
-                    <small>Selecione uma das opções abaixo: </small>
-                    <ul style={{marginTop: "15px"}}>
-                        <li style={{margin: "10px", paddingBottom: "5px", borderBottom: "1px solid rgb(0, 0, 0, 0.2)"}}><input type="checkbox" onChange={checkInput} style={{marginRight: "10px"}}></input>Cartão de Crédito</li>
-                        <li style={{margin: "10px", paddingBottom: "5px", borderBottom: "1px solid rgb(0, 0, 0, 0.2)"}}><input type="checkbox" style={{marginRight: "10px"}}></input>Apple Pay</li>
-                        <li style={{margin: "10px", paddingBottom: "5px", borderBottom: "1px solid rgb(0, 0, 0, 0.2)"}}><input type="checkbox" style={{marginRight: "10px"}}></input>Dinheiro</li>
-                    </ul>
-                </div>
-                <div className="promotionalCode">
-                    <label>Cupons Disponíveis</label>
-                </div>
-            </div>
-            <footer className="footer-pagamento">
-                <Button label="Voltar" className="p-button-danger" onClick={() => window.location.href = "/main"}/>
-                <Button label="Finalizar Pagamento" className="p-button-success" onClick={showSuccess} />
-            </footer>
+                 <Button label="Finalizar Pagamento" type="submit" style={{marginTop: "20px", marginBottom: "40px"}} className="p-button-success" />
+            </form>
+            <Button label="Voltar" className="p-button-danger" style={{marginTop: "20px", marginBottom: "40px"}} onClick={() => window.location.href = "/main"}/>
         </nav>
     )
 }
